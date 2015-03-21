@@ -44,9 +44,9 @@ describe("tg", function() {
       });
 
       describe("gdp", function() {
-        it("should return the second element", function() {
-          expect(tgTable.gdp(tableData[2])).toBe("40");
-          expect(tgTable.gdp(tableData[3])).toBe("41");
+        it("should return the trimmed fifth element", function() {
+          expect(tgTable.gdp(tableData[2])).toBe("272,017");
+          expect(tgTable.gdp(tableData[3])).toBe("271,973");
         });
       });
 

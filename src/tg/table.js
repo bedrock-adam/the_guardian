@@ -13,7 +13,7 @@ var countries = function(table) {
 };
 
 var gdp = function(row) {
-  return row[1];
+  return row[4].trim();
 };
 
 var countryName = function(row) {
