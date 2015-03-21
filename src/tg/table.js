@@ -20,10 +20,18 @@ var countryName = function(row) {
   return row[3];
 };
 
+var format = function(row) {
+  return {
+    countryName: countryName(row),
+    gdp: gdp(row)
+  };
+}
+
 module.exports = {
   countryCode: countryCode,
   isCountry: isCountry,
   countries: countries,
   gdp: gdp,
-  countryName: countryName
+  countryName: countryName,
+  format: format
 };

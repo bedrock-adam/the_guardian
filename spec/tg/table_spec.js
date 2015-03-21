@@ -56,6 +56,19 @@ describe("tg", function() {
           expect(tgTable.countryName(tableData[3])).toBe("Egypt, Arab Rep.");
         });
       });
+
+      describe("format", function() {
+        it("should output correct format", function() {
+          expect(tgTable.format(tableData[2])).toEqual({
+            countryName: "Philippines",
+            gdp: "272,017"
+          });
+          expect(tgTable.format(tableData[3])).toEqual({
+            countryName: "Egypt, Arab Rep.",
+            gdp: "271,973"
+          });
+        });
+      });
     });
   });
 });
