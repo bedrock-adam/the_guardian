@@ -1,0 +1,16 @@
+{
+  "name": "the_guardian",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jasmine JASMINE_CONFIG_PATH=spec/support/jasmine.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+  }
+}
