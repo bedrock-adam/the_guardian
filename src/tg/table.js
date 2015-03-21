@@ -1,12 +1,12 @@
-var selectCountry = function(row) {
+var country = function(row) {
   return row[0];
 };
 
 var isCountry = function(row) {
-  return selectCountry(row) !== "";
-}
+  return country(row) !== "";
+};
 
 module.exports = {
-  selectCountry: selectCountry,
+  country: country,
   isCountry: isCountry
 };
