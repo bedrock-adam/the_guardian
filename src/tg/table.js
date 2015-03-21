@@ -27,11 +27,16 @@ var format = function(row) {
   };
 }
 
+var toJSON = function(table) {
+  return JSON.stringify(_.map(countries(table), format));
+};
+
 module.exports = {
   countryCode: countryCode,
   isCountry: isCountry,
   countries: countries,
   gdp: gdp,
   countryName: countryName,
-  format: format
+  format: format,
+  toJSON: toJSON
 };

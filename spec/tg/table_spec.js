@@ -69,6 +69,15 @@ describe("tg", function() {
           });
         });
       });
+
+      describe("toJSON", function() {
+        it("should output correct format", function() {
+          expect(tgTable.toJSON(tableData)).toBe(JSON.stringify([
+            { countryName: "Philippines", gdp: "272,017" },
+            { countryName: "Egypt, Arab Rep.", gdp: "271,973" }
+          ]));
+        });
+      });
     });
   });
 });
