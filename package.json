@@ -12,6 +12,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "underscore": "^1.8.2"
+  },
+  "dependencies": {
+    "underscore": "^1.8.2",
+    "geocoder": "^0.2.2"
   }
 }
