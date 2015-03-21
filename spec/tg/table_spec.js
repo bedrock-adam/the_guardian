@@ -49,6 +49,13 @@ describe("tg", function() {
           expect(tgTable.gdp(tableData[3])).toBe("41");
         });
       });
+
+      describe("countryName", function() {
+        it("should return the forth element", function() {
+          expect(tgTable.countryName(tableData[2])).toBe("Philippines");
+          expect(tgTable.countryName(tableData[3])).toBe("Egypt, Arab Rep.");
+        });
+      });
     });
   });
 });

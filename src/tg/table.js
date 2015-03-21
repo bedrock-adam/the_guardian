@@ -16,9 +16,14 @@ var gdp = function(row) {
   return row[1];
 };
 
+var countryName = function(row) {
+  return row[3];
+};
+
 module.exports = {
   countryCode: countryCode,
   isCountry: isCountry,
   countries: countries,
-  gdp: gdp
+  gdp: gdp,
+  countryName: countryName
 };
