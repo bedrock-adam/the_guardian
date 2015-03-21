@@ -20,6 +20,19 @@ describe("tg", function() {
           expect(tgTable.selectCountry(tableData[4])).toBe("");
         });
       });
+
+      describe("isCountry", function(row) {
+        it("should return false when selectCountry(row) returns an empty string", function() {
+          expect(tgTable.isCountry(tableData[0])).toBe(false);
+          expect(tgTable.isCountry(tableData[1])).toBe(false);
+          expect(tgTable.isCountry(tableData[4])).toBe(false);
+        });
+
+        it("should return true when selectCountry(row) does not return an empty string", function() {
+          expect(tgTable.isCountry(tableData[2])).toBe(true);
+          expect(tgTable.isCountry(tableData[3])).toBe(true);
+        });
+      });
     });
   });
 });
