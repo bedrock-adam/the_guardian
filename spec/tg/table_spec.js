@@ -11,13 +11,13 @@ describe("tg", function() {
     ];
 
     describe("row", function() {
-      describe("country", function() {
+      describe("countryCode", function() {
         it("should return the first element", function() {
-          expect(tgTable.country(tableData[0])).toBe("");
-          expect(tgTable.country(tableData[1])).toBe("");
-          expect(tgTable.country(tableData[2])).toBe("PHL");
-          expect(tgTable.country(tableData[3])).toBe("EGY");
-          expect(tgTable.country(tableData[4])).toBe("");
+          expect(tgTable.countryCode(tableData[0])).toBe("");
+          expect(tgTable.countryCode(tableData[1])).toBe("");
+          expect(tgTable.countryCode(tableData[2])).toBe("PHL");
+          expect(tgTable.countryCode(tableData[3])).toBe("EGY");
+          expect(tgTable.countryCode(tableData[4])).toBe("");
         });
       });
 

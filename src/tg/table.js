@@ -1,11 +1,11 @@
 var _ = require('underscore');
 
-var country = function(row) {
+var countryCode = function(row) {
   return row[0];
 };
 
 var isCountry = function(row) {
-  return country(row) !== "";
+  return countryCode(row) !== "";
 };
 
 var countries = function(table) {
@@ -17,7 +17,7 @@ var gdp = function(row) {
 };
 
 module.exports = {
-  country: country,
+  countryCode: countryCode,
   isCountry: isCountry,
   countries: countries,
   gdp: gdp
