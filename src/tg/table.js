@@ -12,8 +12,13 @@ var countries = function(table) {
   return _.filter(table, isCountry);
 };
 
+var gdp = function(row) {
+  return row[1];
+};
+
 module.exports = {
   country: country,
   isCountry: isCountry,
-  countries: countries
+  countries: countries,
+  gdp: gdp
 };
