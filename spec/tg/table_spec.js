@@ -33,6 +33,15 @@ describe("tg", function() {
           expect(tgTable.isCountry(tableData[3])).toBe(true);
         });
       });
+
+      describe("countries", function() {
+        it("should return the second element", function() {
+          expect(tgTable.countries(tableData)).toEqual([
+            ["PHL","40","","Philippines"," 272,017 ","","","","",""],
+            ["EGY","41","","Egypt, Arab Rep."," 271,973 ","","","","",""]
+          ]);
+        });
+      });
     });
   });
 });
