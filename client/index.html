@@ -3,6 +3,12 @@
 <head>
   <meta charset="utf-8">
   <title>GDP by country</title>
+  <style type="text/css">
+    .gdp-map {
+      width: 1024px;
+      height: 1000px;
+    }
+  </style>
 </head>
   <body>
     <h1>GDP by country</h1>
@@ -15,10 +21,6 @@
   </body>
 
   <!-- Templates -->
-  <script type="text/template" id="gdp-map-template">
-    [[ gdp-map-template ]]
-  </script>
-
   <script type="text/template" id="gdp-table-template">
     <table>
       <tr>
@@ -34,6 +36,8 @@
     </table>
   </script>
 
+  <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script src="bower_components/gmaps/gmaps.js"></script>
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/underscore/underscore.js"></script>
   <script src="bower_components/backbone/backbone.js"></script>
@@ -42,25 +46,27 @@
   <script src="js/gdp/views/map.js"></script>
   <script src="js/gdp/views/table.js"></script>
   <script>
-    var countryData = [
-      { "countryName": "Australia", "gdp": "1,560,597", "lat": "-25.274398", "lng": "133.775136" },
-      { "countryName": "Netherlands", "gdp": "800,173", "lat": "52.132633", "lng": "5.291265999999999" }
-    ];
+    jQuery(function() {
+      var countryData = [
+        { "countryName": "Australia", "gdp": "1,560,597", "lat": "-25.274398", "lng": "133.775136" },
+        { "countryName": "Netherlands", "gdp": "800,173", "lat": "52.132633", "lng": "5.291265999999999" }
+      ];
 
-    var countryList = new tg.gdp.CountryList(countryData);
+      var countryList = new tg.gdp.CountryList(countryData);
 
-    var mapView = new tg.gdp.MapView({
-      collection: countryList,
-      el: document.querySelector(".gdp-map")
+      var mapView = new tg.gdp.MapView({
+        collection: countryList,
+        el: document.querySelector(".gdp-map")
+      });
+
+      mapView.render();
+
+      var tableView = new tg.gdp.TableView({
+        collection: countryList,
+        el: document.querySelector(".gdp-table")
+      });
+
+      tableView.render();
     });
-
-    mapView.render();
-
-    var tableView = new tg.gdp.TableView({
-      collection: countryList,
-      el: document.querySelector(".gdp-table")
-    });
-
-    tableView.render();
   </script>
 </html>

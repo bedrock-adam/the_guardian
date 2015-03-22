@@ -2,12 +2,33 @@
   "use strict";
 
   var MapView = Backbone.View.extend({
-    template: _.template($("#gdp-map-template").html()),
-
     render: function() {
-      this.$el.html(this.template(this.collection.toJSON()));
+      var map = new GMaps({
+        el: this.el,
+        lat: -25.274398,
+        lng: 133.775136
+      });
 
-      return this;
+      var bounds = [];
+
+      this.collection.toJSON().forEach(function(country) {
+        var latlng = new google.maps.LatLng(country.lat, country.lng);
+        bounds.push(latlng);
+
+        map.addMarker({
+          lat: country.lat,
+          lng: country.lng,
+          title: country.countryName,
+          mouseover: function(e) {
+            this.infoWindow.open(this.map, this);
+          },
+          infoWindow: {
+            content: '<p>' + country.countryName + '</p>'
+          }
+        });
+      });
+
+      map.fitLatLngBounds(bounds);
     }
   });
 
