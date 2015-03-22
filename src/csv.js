@@ -9,8 +9,8 @@ module.exports = (function() {
     return countryCode(row) !== "";
   };
 
-  var countries = function(table) {
-    return Array.prototype.filter.call(table, isCountry);
+  var countries = function(csv) {
+    return Array.prototype.filter.call(csv, isCountry);
   };
 
   var gdp = function(row) {
@@ -28,8 +28,8 @@ module.exports = (function() {
     };
   }
 
-  var formatTable = function(table) {
-    return Array.prototype.map.call(countries(table), formatRow);
+  var formatCSV = function(csv) {
+    return Array.prototype.map.call(countries(csv), formatRow);
   };
 
   return {
@@ -39,6 +39,6 @@ module.exports = (function() {
     gdp: gdp,
     countryName: countryName,
     formatRow: formatRow,
-    formatTable: formatTable
+    formatCSV: formatCSV
   };
 })();

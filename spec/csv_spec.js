@@ -1,7 +1,7 @@
-describe("table", function() {
-  var Table = require('../src/table');
+describe("csv", function() {
+  var CSV = require('../src/csv');
 
-  var tableData = [
+  var csvData = [
     ["","Gross domestic product 2013","","","","","","","",""],
     ["","","","","","","","","",""],
     ["PHL","40","","Philippines"," 272,017 ","","","","",""],
@@ -12,30 +12,30 @@ describe("table", function() {
   describe("row", function() {
     describe("countryCode", function() {
       it("should return the first element", function() {
-        expect(Table.countryCode(tableData[0])).toBe("");
-        expect(Table.countryCode(tableData[1])).toBe("");
-        expect(Table.countryCode(tableData[2])).toBe("PHL");
-        expect(Table.countryCode(tableData[3])).toBe("EGY");
-        expect(Table.countryCode(tableData[4])).toBe("");
+        expect(CSV.countryCode(csvData[0])).toBe("");
+        expect(CSV.countryCode(csvData[1])).toBe("");
+        expect(CSV.countryCode(csvData[2])).toBe("PHL");
+        expect(CSV.countryCode(csvData[3])).toBe("EGY");
+        expect(CSV.countryCode(csvData[4])).toBe("");
       });
     });
 
     describe("isCountry", function(row) {
       it("should return false when country(row) returns an empty string", function() {
-        expect(Table.isCountry(tableData[0])).toBe(false);
-        expect(Table.isCountry(tableData[1])).toBe(false);
-        expect(Table.isCountry(tableData[4])).toBe(false);
+        expect(CSV.isCountry(csvData[0])).toBe(false);
+        expect(CSV.isCountry(csvData[1])).toBe(false);
+        expect(CSV.isCountry(csvData[4])).toBe(false);
       });
 
       it("should return true when country(row) does not return an empty string", function() {
-        expect(Table.isCountry(tableData[2])).toBe(true);
-        expect(Table.isCountry(tableData[3])).toBe(true);
+        expect(CSV.isCountry(csvData[2])).toBe(true);
+        expect(CSV.isCountry(csvData[3])).toBe(true);
       });
     });
 
     describe("countries", function() {
       it("should return the second element", function() {
-        expect(Table.countries(tableData)).toEqual([
+        expect(CSV.countries(csvData)).toEqual([
           ["PHL","40","","Philippines"," 272,017 ","","","","",""],
           ["EGY","41","","Egypt, Arab Rep."," 271,973 ","","","","",""]
         ]);
@@ -44,34 +44,34 @@ describe("table", function() {
 
     describe("gdp", function() {
       it("should return the trimmed fifth element", function() {
-        expect(Table.gdp(tableData[2])).toBe("272,017");
-        expect(Table.gdp(tableData[3])).toBe("271,973");
+        expect(CSV.gdp(csvData[2])).toBe("272,017");
+        expect(CSV.gdp(csvData[3])).toBe("271,973");
       });
     });
 
     describe("countryName", function() {
       it("should return the forth element", function() {
-        expect(Table.countryName(tableData[2])).toBe("Philippines");
-        expect(Table.countryName(tableData[3])).toBe("Egypt, Arab Rep.");
+        expect(CSV.countryName(csvData[2])).toBe("Philippines");
+        expect(CSV.countryName(csvData[3])).toBe("Egypt, Arab Rep.");
       });
     });
 
     describe("formatRow", function() {
       it("should output correct format", function() {
-        expect(Table.formatRow(tableData[2])).toEqual({
+        expect(CSV.formatRow(csvData[2])).toEqual({
           countryName: "Philippines",
           gdp: "272,017"
         });
-        expect(Table.formatRow(tableData[3])).toEqual({
+        expect(CSV.formatRow(csvData[3])).toEqual({
           countryName: "Egypt, Arab Rep.",
           gdp: "271,973"
         });
       });
     });
 
-    describe("formatTable", function() {
+    describe("formatCSV", function() {
       it("should output correct format", function() {
-        expect(Table.formatTable(tableData)).toEqual([
+        expect(CSV.formatCSV(csvData)).toEqual([
           { countryName: "Philippines", gdp: "272,017" },
           { countryName: "Egypt, Arab Rep.", gdp: "271,973" }
         ]);
