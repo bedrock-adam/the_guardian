@@ -7,7 +7,9 @@
     template: _.template($("#gdp-table-template").html()),
 
     render: function() {
-      this.$el.html(this.template(this.collection.toJSON()));
+      this.$el.html(this.template({
+        collection: this.collection.toJSON()
+      }));
 
       return this;
     }

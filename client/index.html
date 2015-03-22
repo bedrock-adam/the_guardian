@@ -31,7 +31,12 @@
   <script src="js/gdp/views/map.js"></script>
   <script src="js/gdp/views/table.js"></script>
   <script>
-    var countryList = new tg.gdp.CountryList;
+    var countryData = [
+      { "countryName": "Australia", "gdp": "1,560,597", "lat": "-25.274398", "lng": "133.775136" },
+      { "countryName": "Netherlands", "gdp": "800,173", "lat": "52.132633", "lng": "5.291265999999999" }
+    ];
+
+    var countryList = new tg.gdp.CountryList(countryData);
 
     var mapView = new tg.gdp.MapView({
       collection: countryList,
