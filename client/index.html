@@ -14,9 +14,25 @@
     <div class="gdp-table"></div>
   </body>
 
+  <!-- Templates -->
+  <script type="text/template" id="gdp-map-template">
+    [[ gdp-map-template ]]
+  </script>
+
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/underscore/underscore.js"></script>
   <script src="bower_components/backbone/backbone.js"></script>
   <script src="js/gdp/models/country.js"></script>
   <script src="js/gdp/collections/countries.js"></script>
+  <script src="js/gdp/views/map.js"></script>
+  <script>
+    var countryList = new tg.gdp.CountryList;
+
+    var mapView = new tg.gdp.MapView({
+      collection: countryList,
+      el: document.querySelector(".gdp-map")
+    });
+
+    mapView.render();
+  </script>
 </html>
