@@ -2,7 +2,7 @@ module.exports = (function() {
   "use strict";
 
   var countryId = function(row) {
-    return row[1].trim();
+    return row[1] ? row[1].trim() : "";
   };
 
   var countryCode = function(row) {
@@ -36,13 +36,34 @@ module.exports = (function() {
     return Array.prototype.map.call(countries(csv), formatRow);
   };
 
+  var parse = function(raw, cb) {
+    var babyparse = require('babyparse');
+
+    var res = [];
+
+    babyparse.parse(raw, {
+      step: function(results, parser) {
+        var row = results.data[0];
+
+        if (isCountry(row)) {
+          res.push(formatRow(row));
+        }
+      },
+      complete: function(results, file) {
+        cb(res);
+      }
+    });
+  };
+
   return {
+    countryId: countryId,
     countryCode: countryCode,
     isCountry: isCountry,
     countries: countries,
     gdp: gdp,
     countryName: countryName,
     formatRow: formatRow,
-    formatCSV: formatCSV
+    formatCSV: formatCSV,
+    parse: parse
   };
 })();
