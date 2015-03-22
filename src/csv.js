@@ -22,7 +22,7 @@ module.exports = (function() {
   };
 
   var countryName = function(row) {
-    return row[3];
+    return row[3].trim();
   };
 
   var formatRow = function(row) {
