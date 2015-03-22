@@ -1,6 +1,10 @@
 module.exports = (function() {
   "use strict";
 
+  var countryId = function(row) {
+    return row[1].trim();
+  };
+
   var countryCode = function(row) {
     return row[0];
   };

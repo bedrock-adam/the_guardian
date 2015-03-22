@@ -20,6 +20,16 @@ describe("csv", function() {
       });
     });
 
+    describe("countryId", function() {
+      it("should return the second element", function() {
+        expect(CSV.countryId(csvData[0])).toBe("Gross domestic product 2013");
+        expect(CSV.countryId(csvData[1])).toBe("");
+        expect(CSV.countryId(csvData[2])).toBe("40");
+        expect(CSV.countryId(csvData[3])).toBe("41");
+        expect(CSV.countryId(csvData[4])).toBe(".. Not available.");
+      });
+    });
+
     describe("isCountry", function(row) {
       it("should return false when country(row) returns an empty string", function() {
         expect(CSV.isCountry(csvData[0])).toBe(false);
