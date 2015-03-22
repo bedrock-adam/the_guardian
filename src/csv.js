@@ -10,7 +10,7 @@ module.exports = (function() {
   };
 
   var isCountry = function(row) {
-    return countryCode(row) !== "";
+    return countryId(row).match(/^\d+$/) !== null;
   };
 
   var countries = function(csv) {

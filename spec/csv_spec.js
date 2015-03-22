@@ -31,13 +31,13 @@ describe("csv", function() {
     });
 
     describe("isCountry", function(row) {
-      it("should return false when country(row) returns an empty string", function() {
+      it("should return false when countryId(row) is not a number", function() {
         expect(CSV.isCountry(csvData[0])).toBe(false);
         expect(CSV.isCountry(csvData[1])).toBe(false);
         expect(CSV.isCountry(csvData[4])).toBe(false);
       });
 
-      it("should return true when country(row) does not return an empty string", function() {
+      it("should return true when countryId(row) is a number", function() {
         expect(CSV.isCountry(csvData[2])).toBe(true);
         expect(CSV.isCountry(csvData[3])).toBe(true);
       });
