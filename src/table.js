@@ -20,15 +20,15 @@ var countryName = function(row) {
   return row[3];
 };
 
-var format = function(row) {
+var formatRow = function(row) {
   return {
     countryName: countryName(row),
     gdp: gdp(row)
   };
 }
 
-var toJSON = function(table) {
-  return JSON.stringify(_.map(countries(table), format));
+var formatTable = function(table) {
+  return _.map(countries(table), formatRow);
 };
 
 module.exports = {
@@ -37,6 +37,6 @@ module.exports = {
   countries: countries,
   gdp: gdp,
   countryName: countryName,
-  format: format,
-  toJSON: toJSON
+  formatRow: formatRow,
+  formatTable: formatTable
 };

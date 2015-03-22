@@ -56,25 +56,25 @@ describe("table", function() {
       });
     });
 
-    describe("format", function() {
+    describe("formatRow", function() {
       it("should output correct format", function() {
-        expect(Table.format(tableData[2])).toEqual({
+        expect(Table.formatRow(tableData[2])).toEqual({
           countryName: "Philippines",
           gdp: "272,017"
         });
-        expect(Table.format(tableData[3])).toEqual({
+        expect(Table.formatRow(tableData[3])).toEqual({
           countryName: "Egypt, Arab Rep.",
           gdp: "271,973"
         });
       });
     });
 
-    describe("toJSON", function() {
+    describe("formatTable", function() {
       it("should output correct format", function() {
-        expect(Table.toJSON(tableData)).toBe(JSON.stringify([
+        expect(Table.formatTable(tableData)).toEqual([
           { countryName: "Philippines", gdp: "272,017" },
           { countryName: "Egypt, Arab Rep.", gdp: "271,973" }
-        ]));
+        ]);
       });
     });
   });
