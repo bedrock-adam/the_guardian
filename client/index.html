@@ -19,12 +19,17 @@
     [[ gdp-map-template ]]
   </script>
 
+  <script type="text/template" id="gdp-table-template">
+    [[ gdp-table-template ]]
+  </script>
+
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/underscore/underscore.js"></script>
   <script src="bower_components/backbone/backbone.js"></script>
   <script src="js/gdp/models/country.js"></script>
   <script src="js/gdp/collections/countries.js"></script>
   <script src="js/gdp/views/map.js"></script>
+  <script src="js/gdp/views/table.js"></script>
   <script>
     var countryList = new tg.gdp.CountryList;
 
@@ -34,5 +39,12 @@
     });
 
     mapView.render();
+
+    var tableView = new tg.gdp.TableView({
+      collection: countryList,
+      el: document.querySelector(".gdp-table")
+    });
+
+    tableView.render();
   </script>
 </html>
