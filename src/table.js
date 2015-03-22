@@ -1,5 +1,3 @@
-var _ = require('underscore');
-
 var countryCode = function(row) {
   return row[0];
 };
@@ -9,7 +7,7 @@ var isCountry = function(row) {
 };
 
 var countries = function(table) {
-  return _.filter(table, isCountry);
+  return Array.prototype.filter.call(table, isCountry);
 };
 
 var gdp = function(row) {
@@ -28,7 +26,7 @@ var formatRow = function(row) {
 }
 
 var formatTable = function(table) {
-  return _.map(countries(table), formatRow);
+  return Array.prototype.map.call(countries(table), formatRow);
 };
 
 module.exports = {
