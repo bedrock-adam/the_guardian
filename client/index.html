@@ -20,7 +20,18 @@
   </script>
 
   <script type="text/template" id="gdp-table-template">
-    [[ gdp-table-template ]]
+    <table>
+      <tr>
+        <th>Country name</th>
+        <th>GDP</th>
+      </tr>
+      <% _.each(collection, function(model) { %>
+        <tr>
+          <td><%= model.countryName %></td>
+          <td><%= model.gdp %></td>
+        </tr>
+      <% }); %>
+    </table>
   </script>
 
   <script src="bower_components/jquery/dist/jquery.js"></script>
