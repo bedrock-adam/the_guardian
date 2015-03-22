@@ -1,0 +1,22 @@
+{
+  "name": "the_guardian",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Subskii/the_guardian",
+  "authors": [
+    "Adam Mikulasev <adam@dealfetch.com.au>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.1.2",
+    "underscore": "~1.8.2",
+    "jquery": "~2.1.3"
+  }
+}
