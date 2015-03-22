@@ -11,8 +11,8 @@
 
 1. `npm install`
 2. `cd client && bower install && cd ../`
-3. `gulp 'parse'
-4. `gulp 'geocode'
+3. `gulp 'parse'`
+4. `gulp 'geocode'`
 5. `node server/index.js`
 5. navigate to `http://localhost:3000` in browser
 
