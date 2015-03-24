@@ -47,26 +47,22 @@
   <script src="js/gdp/views/table.js"></script>
   <script>
     jQuery(function() {
-      var countryData = [
-        { "countryName": "Australia", "gdp": "1,560,597", "lat": "-25.274398", "lng": "133.775136" },
-        { "countryName": "Netherlands", "gdp": "800,173", "lat": "52.132633", "lng": "5.291265999999999" }
-      ];
-
-      var countryList = new tg.gdp.CountryList(countryData);
+      var countryList = new tg.gdp.CountryList;
 
       var mapView = new tg.gdp.MapView({
         collection: countryList,
         el: document.querySelector(".gdp-map")
       });
 
-      mapView.render();
-
       var tableView = new tg.gdp.TableView({
         collection: countryList,
         el: document.querySelector(".gdp-table")
       });
 
-      tableView.render();
+      countryList.fetch().done(function() {
+        mapView.render();
+        tableView.render();
+      })
     });
   </script>
 </html>

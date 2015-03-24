@@ -3,7 +3,7 @@
 
   var CountryList = Backbone.Collection.extend({
     model: global.tg.gdp.Country,
-    url: '/api/countries.json'
+    url: '/api/countries_geocoded.json'
   });
 
   global.tg = global.tg || {};
