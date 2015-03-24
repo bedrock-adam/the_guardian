@@ -12,6 +12,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babyparse": "^0.4.3",
+    "gulp": "^3.8.11",
+    "q": "^1.2.0"
   },
   "dependencies": {
     "geocoder": "^0.2.2"
