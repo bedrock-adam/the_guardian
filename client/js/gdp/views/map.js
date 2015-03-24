@@ -11,12 +11,12 @@
       });
     },
     renderOne: function(country) {
-      var latlng = new google.maps.LatLng(country.lat, country.lng);
+      var latlng = new google.maps.LatLng(country.latitude, country.longitude);
       this.bounds.push(latlng);
 
       this.map.addMarker({
-        lat: country.lat,
-        lng: country.lng,
+        lat: country.latitude,
+        lng: country.longitude,
         title: country.countryName,
         mouseover: function(e) {
           this.infoWindow.open(this.map, this);
