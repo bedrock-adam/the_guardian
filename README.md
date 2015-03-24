@@ -11,8 +11,8 @@
 
 1. `npm install`
 2. `cd client && bower install && cd ../`
-3. `gulp 'parse'`
-4. `gulp 'geocode'`
+3. `gulp parse` (optional)
+4. `key=[[google-geocoding-key]] gulp geocode` (optional)
 5. `node server/index.js`
 5. navigate to `http://localhost:3000` in browser
 
@@ -23,7 +23,8 @@
 ## Potential improvements
 
 1. browerify front-end components for better modularity
-2. add e2e test
-3. add tg.gdp.TableView and tg.gdp.MapView tests
-4. use proper gulp streaming interface for parse & geocode tasks e.g. pipe()
-5. move tg.gdp.MapView.renderOne() => new tg.gdp.MarkerView.render()
+2. add tg.gdp.TableView and tg.gdp.MapView tests
+3. use proper gulp vinyl streaming interface for parse task e.g. csv2(), pipe()
+4. refactor tg.gdp.MapView.renderOne() into new tg.gdp.MarkerView() constructor
+5. add e2e tests
+6. better way to sequentially run promises?
