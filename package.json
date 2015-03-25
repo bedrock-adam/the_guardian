@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "start": "node server/index.js",
     "test": "jasmine JASMINE_CONFIG_PATH=spec/support/jasmine.json"
   },
   "author": "",

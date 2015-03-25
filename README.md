@@ -13,7 +13,7 @@
 2. `cd client && bower install && cd ../`
 3. `gulp parse` (optional)
 4. `key=[[google-geocoding-key]] gulp geocode` (optional)
-5. `node server/index.js`
+5. `npm start`
 5. navigate to `http://localhost:3000` in browser
 
 ## Tests
