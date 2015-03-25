@@ -1,15 +1,42 @@
 var gulp = require('gulp');
 
-gulp.task('parse', function(cb) {
+gulp.task('parse', function() {
   var fs = require('fs'),
-      CSV = require('./src/csv');
+      through2 = require('through2'),
+      filter = require('through2-filter'),
+      map = require('through2-map'),
+      reduce = require('through2-reduce')
+      csv2 = require('csv2'),
+      tg = require('./src/csv'),
+      gulp = require('gulp'),
+      rename = require('gulp-rename');
 
-  var raw = fs.readFileSync('data/GDP.csv', 'utf-8');
+    var skip = filter.obj(function(chunk) {
+      return tg.isCountry(chunk);
+    });
 
-  CSV.parse(raw, function(output) {
-    fs.writeFileSync('client/api/countries.json', JSON.stringify(output));
-  });
-});
+    var parse = map.obj(function(chunk) {
+      return tg.formatRow(chunk);
+    });
+
+    var merge = reduce({objectMode: true}, function(memo, curr) {
+      memo.push(curr);
+
+      return memo;
+    }, []);
+
+    var jsonify = map.obj(function(data) {
+      return JSON.stringify(data);
+    });
+
+    fs.createReadStream('data/GDP.csv', 'utf-8')
+      .pipe(csv2())
+      .pipe(skip)
+      .pipe(parse)
+      .pipe(merge)
+      .pipe(jsonify)
+      .pipe(fs.createWriteStream('client/api/countries.json'));
+})
 
 gulp.task('geocode', function(done) {
   var fs = require('fs'),

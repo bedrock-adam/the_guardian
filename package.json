@@ -14,8 +14,14 @@
   "license": "ISC",
   "devDependencies": {
     "babyparse": "^0.4.3",
+    "csv2": "^0.1.1",
     "gulp": "^3.8.11",
-    "q": "^1.2.0"
+    "gulp-rename": "^1.2.0",
+    "q": "^1.2.0",
+    "through2": "^0.6.3",
+    "through2-filter": "^1.4.1",
+    "through2-map": "^1.4.0",
+    "through2-reduce": "^0.3.0"
   },
   "dependencies": {
     "connect": "^3.3.5",

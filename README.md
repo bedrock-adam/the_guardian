@@ -24,7 +24,7 @@
 
 1. browerify front-end components for better modularity
 2. add tg.gdp.TableView and tg.gdp.MapView tests
-3. use proper gulp vinyl streaming interface for parse task e.g. csv2(), pipe()
+3. use proper gulp vinyl adapter for parse task e.g. csv2(), pipe()
 4. refactor tg.gdp.MapView.renderOne() into new tg.gdp.MarkerView() constructor
 5. add e2e tests
 6. better way to sequentially run promises?
