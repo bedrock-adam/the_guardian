@@ -22,7 +22,7 @@
 
 ## Potential improvements
 
-1. browerify front-end components for better modularity
+1. browserify front-end components for better modularity
 2. add tg.gdp.TableView and tg.gdp.MapView tests
 3. use proper gulp vinyl adapter for parse task e.g. csv2(), pipe()
 4. refactor tg.gdp.MapView.renderOne() into new tg.gdp.MarkerView() constructor
